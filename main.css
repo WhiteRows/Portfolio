@@ -1,0 +1,231 @@
+RESET STYLES
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* VARIABLES */
+:root {
+    --main-color: #1a2424;
+    --secondary-color: #c4c4c4;
+    --bg-1: #D55B5B;
+    --bg-2: #D5AC5B;
+    --bg-3: #5B9BD5;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+@media only screen and (max-width: 75em) {
+    html {
+        font-size:56.25%
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
+    html {
+        font-size:50%
+    }
+}
+
+@media only screen and (min-width: 112.5em) {
+    html {
+        font-size:100%
+    }
+}
+
+body {
+    background-color: var(--main-color);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    padding: 5vmin 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.border {
+    width: calc(100vw - 10vmin);
+    height: calc(100vh - 10vmin);
+    border: .2rem solid var(--secondary-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.section {
+    width: 100vw;
+    height: calc((100vh - 10vmin) / 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section--top {
+    color: var(--secondary-color);
+}
+
+.heading-1 {
+    font-size: 8rem;
+    color: inherit;
+    text-transform: uppercase;
+}
+
+.heading-2 {
+    font-size: 5rem;
+    color: inherit;
+}
+
+.section--mid {
+    color: var(--main-color);
+}
+
+.content {
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-transform: uppercase;
+    position: absolute;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .8s ease-in-out;
+}
+
+.content:nth-child(1) > span,
+.content:nth-child(3) > span {
+    transform: translateX(15vmin);
+}
+
+.content:nth-child(2) > span {
+    transform: translateX(-15vmin);
+}
+
+.resume {
+    background-color: var(--bg-1);
+    right: 15vmin;
+    top: calc(100vh - 5vmin - 60vh);
+    border-radius: 0 1rem 1rem 0;
+}
+
+.projects {
+    background-color: var(--bg-2);
+    top: calc(5vmin + 40vh);
+    right: -15vmin;
+    border-radius: 1rem 0 0 1rem;
+}
+
+.contacts {
+    background-color: var(--bg-3);
+    right: 15vmin;
+    bottom: 0;
+    border-radius: 0 1rem 1rem 0;
+    top: calc(5vmin + 50vh);
+}
+
+.btn-close {
+    width: 3vh;
+    height: 3vh;
+    position: absolute;
+    right: 3.5vh;
+    top: 3.5vh;
+    display: none;
+}
+
+.btn-close::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 4.3vh;
+    background-color: var(--main-color);
+    transform: rotate(45deg);
+    top: 1.3vh;
+    right: -.7vh;
+}
+
+.btn-close::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 4.3vh;
+    background-color: var(--main-color);
+    transform: rotate(-45deg);
+    top: 1.3vh;
+    right: -.7vh;
+}
+
+.content.active {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    z-index: 100;
+    cursor: initial;
+}
+
+.content.active .btn-close {
+    display: block;
+}
+
+.content.active .content:nth-of-type(1):not(.active) {
+    top: 0;
+    left: 0;
+    width: 50vw;
+}
+
+.section--bot {
+    flex-direction: row;
+}
+
+.logo {
+    height: 12vh;
+    width: auto;
+}
