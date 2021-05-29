@@ -15,6 +15,8 @@ const contactsHeading = document.querySelector('.heading-3--contacts');
 const resumeContent = document.querySelector('.content--resume');
 const projectsContent = document.querySelector('.content--projects');
 const contactsContent = document.querySelector('.content--contacts');
+//DOWNLOAD BUTTON
+const download = document.querySelector('.download')
 
 
 //RESUME OPEN--------------------------------------
@@ -26,8 +28,10 @@ resume.addEventListener('click', () =>{
     setTimeout(() =>{
         resume.style.height = '100vh';
         resume.style.top = '0';
+        resume.style.paddingTop = '2rem';
         resume.style.borderRadius = '0';
         resume.style.overflowY = 'scroll';
+        download.style.display = 'block';
         btnCloseResume.style.display = 'block';
         resumeContent.style.display = 'block';
         setTimeout(() =>{
@@ -41,12 +45,14 @@ btnCloseResume.addEventListener('click', (e) =>{
     e.preventDefault();
     e.stopPropagation();
     resume.style.height = '10vh';
+    resume.style.paddingTop = '0';
     resume.style.top = 'calc(100vh - 5vmin - 60vh)'
     resume.style.borderRadius = '1rem';
-    resume.style.overflowY = 'hidden'
-    resumeContent.style.transform = 'scale(0)'
+    resume.style.overflowY = 'hidden';
+    download.style.display = 'none';
+    resumeContent.style.transform = 'scale(0)';
+    resumeContent.style.display = 'none'
     setTimeout(() =>{
-        resumeContent.style.display = 'none'
         resume.style.zIndex = '99'
         resume.style.right = '15vmin';
         resume.style.cursor = 'pointer';
