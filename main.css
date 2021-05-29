@@ -52,6 +52,17 @@ table {
     --bg-3: #5B9BD5;
 }
 
+/* ANIMATION */
+@keyframes moveInFromTheLeft {
+    25% {
+        transform: translateX(15vmin);
+    }
+    
+    100% {
+        height: 100vh;
+    }
+}
+
 html{
     font-size: 62.5%;
 }
@@ -128,29 +139,43 @@ body {
     display: flex;
     align-items: center;
     color: inherit;
-    text-transform: uppercase;
     position: absolute;
     font-size: 3rem;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     cursor: pointer;
     transition: all .8s ease-in-out;
 }
 
-.content:nth-child(1) > span,
-.content:nth-child(3) > span {
+.content > h3 {
+    transition: all 1s;
+    text-transform: uppercase;
+}
+
+.content:nth-child(1) > h3,
+.content:nth-child(3) > h3 {
     transform: translateX(15vmin);
 }
 
-.content:nth-child(2) > span {
+.content:nth-child(2) > h3 {
     transform: translateX(-15vmin);
 }
 
+.content--resume,
+.content--projects,
+.content--contacts {
+    transition: all .5s;
+    transform: scale(0);
+    display: none;
+}
+
 .resume {
-    background-color: var(--bg-1);
+    background-color: var(--secondary-color);
     right: 15vmin;
     top: calc(100vh - 5vmin - 60vh);
     border-radius: 0 1rem 1rem 0;
+    transition: all .8s ease-in-out;
 }
 
 .projects {
@@ -158,6 +183,7 @@ body {
     top: calc(5vmin + 40vh);
     right: -15vmin;
     border-radius: 1rem 0 0 1rem;
+    transition: all .8s ease-in-out;
 }
 
 .contacts {
@@ -166,9 +192,12 @@ body {
     bottom: 0;
     border-radius: 0 1rem 1rem 0;
     top: calc(5vmin + 50vh);
+    transition: all .8s ease-in-out;
 }
 
-.btn-close {
+.btn-close-resume,
+.btn-close-projects,
+.btn-close-contacts {
     width: 3vh;
     height: 3vh;
     position: absolute;
@@ -177,7 +206,9 @@ body {
     display: none;
 }
 
-.btn-close::before {
+.btn-close-resume::before,
+.btn-close-projects::before,
+.btn-close-contacts::before {
     content: "";
     display: block;
     position: absolute;
@@ -189,7 +220,9 @@ body {
     right: -.7vh;
 }
 
-.btn-close::after {
+.btn-close-resume::after,
+.btn-close-projects::after,
+.btn-close-contacts::after {
     content: "";
     display: block;
     position: absolute;
