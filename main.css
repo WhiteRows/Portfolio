@@ -101,6 +101,7 @@ body {
     width: calc(100vw - 10vmin);
     height: calc(100vh - 10vmin);
     border: .2rem solid var(--secondary-color);
+    border-radius: 1rem;
     position: absolute;
     top: 50%;
     left: 50%;
