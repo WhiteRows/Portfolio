@@ -21,7 +21,8 @@ const download = document.querySelector('.download')
 
 //RESUME OPEN--------------------------------------
 resume.addEventListener('click', () =>{
-    resume.style.right = '0';
+    resume.style.width = 'calc(100vw + 5vmin)'
+    resume.style.right = '-5vmin';
     resume.style.cursor = 'initial';
     resume.style.zIndex = '100';
     resumeHeading.style.transform = 'translateX(0)';
@@ -31,34 +32,38 @@ resume.addEventListener('click', () =>{
         resume.style.paddingTop = '2rem';
         resume.style.borderRadius = '0';
         resume.style.overflowY = 'scroll';
-        download.style.display = 'block';
-        btnCloseResume.style.display = 'block';
-        resumeContent.style.display = 'block';
         setTimeout(() =>{
-            resumeContent.style.transform = 'scale(1)';
+            resumeContent.style.display = 'block';
+            download.style.display = 'block';
+            btnCloseResume.style.display = 'block';
+            setTimeout(() =>{
+                resumeContent.style.transform = 'scale(1)';
+            }, 0)
         }, 1000);
-    }, 1000);   
+    }, 600);   
 });
 
 //RESUME CLOSE
 btnCloseResume.addEventListener('click', (e) =>{
     e.preventDefault();
     e.stopPropagation();
-    resume.style.height = '10vh';
-    resume.style.paddingTop = '0';
-    resume.style.top = 'calc(100vh - 5vmin - 60vh)'
-    resume.style.borderRadius = '1rem';
-    resume.style.overflowY = 'hidden';
-    download.style.display = 'none';
     resumeContent.style.transform = 'scale(0)';
-    resumeContent.style.display = 'none'
     setTimeout(() =>{
-        resume.style.zIndex = '99'
-        resume.style.right = '15vmin';
-        resume.style.cursor = 'pointer';
-        resumeHeading.style.transform = 'translateX(15vmin)';
+        resume.style.height = '10vh';
+        resume.style.paddingTop = '0';
+        resume.style.top = 'calc(100vh - 5vmin - 60vh)'
+        resume.style.borderRadius = '0 1rem 1rem 0';
+        resume.style.overflowY = 'hidden';
+        download.style.display = 'none';
+        resumeContent.style.display = 'none'
         btnCloseResume.style.display = "none";
-    }, 1000);
+        setTimeout(() =>{
+            resume.style.zIndex = '99'
+            resume.style.right = '15vmin';
+            resume.style.cursor = 'pointer';
+            resumeHeading.style.transform = 'translateX(15vmin)';
+        }, 1000);
+    }, 500);
 });
 //---------------------------------------------------
 
@@ -72,34 +77,38 @@ projects.addEventListener('click', () =>{
         projects.style.height = '100vh';
         projects.style.top = '0';
         projects.style.borderRadius = '0';
-        btnCloseProjects.style.display = 'block';
-        projectsContent.style.display = 'block'
         setTimeout(() =>{
-            projectsContent.style.transform = 'scale(1)'
+            projectsContent.style.display = 'block';
+            btnCloseProjects.style.display = 'block';
+            setTimeout(() =>{
+                projectsContent.style.transform = 'scale(1)';
+            }, 0)
         }, 1000);
-    }, 1000);   
+    }, 600);   
 });
 
 //PROJECTS CLOSE
 btnCloseProjects.addEventListener('click', (e) =>{
     e.preventDefault();
     e.stopPropagation();
-    projects.style.height = '10vh';
-    projects.style.top = 'calc(5vmin + 40vh)'
-    projects.style.borderRadius = '1rem';
-    projectsContent.style.transform = 'scale(0)'
+    projectsContent.style.transform = 'scale(0)';
     setTimeout(() =>{
-        projects.style.zIndex = '99'
-        projects.style.right = '-15vmin';
-        projects.style.cursor = 'pointer';
-        projectsHeading.style.transform = 'translateX(-15vh)';
-        btnCloseProjects.style.display = "none";
+        projects.style.height = '10vh';
+        projects.style.top = 'calc(5vmin + 40vh)'
+        projects.style.borderRadius = '1rem 0 0 1rem';
         projectsContent.style.display = 'none'
-    }, 1000);
+        btnCloseProjects.style.display = "none";
+        setTimeout(() =>{
+            projects.style.zIndex = '99'
+            projects.style.right = '-15vmin';
+            projects.style.cursor = 'pointer';
+            projectsHeading.style.transform = 'translateX(-15vmin)';
+        }, 1000);
+    }, 500);
 });
 //---------------------------------------------------
 
-//CONTACTS OPEN--------------------------------------
+//PROJECTS OPEN--------------------------------------
 contacts.addEventListener('click', () =>{
     contacts.style.right = '0';
     contacts.style.cursor = 'initial';
@@ -109,31 +118,33 @@ contacts.addEventListener('click', () =>{
         contacts.style.height = '100vh';
         contacts.style.top = '0';
         contacts.style.borderRadius = '0';
-        btnCloseContacts.style.display = 'block';
-        btnCloseContacts.style.zIndex = '200';
-        contactsContent.style.display = 'block'
         setTimeout(() =>{
-            contactsContent.style.transform = 'scale(1)'
+            contactsContent.style.display = 'block';
+            btnCloseContacts.style.display = 'block';
+            setTimeout(() =>{
+                contactsContent.style.transform = 'scale(1)';
+            }, 0)
         }, 1000);
-    }, 1000);   
+    }, 600);   
 });
 
-//CONTACTS CLOSE
+//PROJECTS CLOSE
 btnCloseContacts.addEventListener('click', (e) =>{
     e.preventDefault();
     e.stopPropagation();
-    contacts.style.height = '10vh';
-    contacts.style.top = 'calc(5vmin + 50vh)'
-    contacts.style.borderRadius = '1rem';
-    contactsContent.style.transform = 'scale(0)'
+    contactsContent.style.transform = 'scale(0)';
     setTimeout(() =>{
-        contacts.style.zIndex = '99'
-        contacts.style.right = '15vmin';
-        contacts.style.cursor = 'pointer';
-        contactsHeading.style.transform = 'translateX(15vmin)';
+        contacts.style.height = '10vh';
+        contacts.style.top = 'calc(5vmin + 50vh)'
+        contacts.style.borderRadius = '0 1rem 1rem 0';
+        contactsContent.style.display = 'none'
         btnCloseContacts.style.display = "none";
-        contactsContent.style.display = "none";
-    }, 1000);
+        setTimeout(() =>{
+            contacts.style.zIndex = '99'
+            contacts.style.right = '15vmin';
+            contacts.style.cursor = 'pointer';
+            contactsHeading.style.transform = 'translateX(15vmin)';
+        }, 1000);
+    }, 500);
 });
 //---------------------------------------------------
-

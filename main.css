@@ -264,6 +264,26 @@ body {
     transition: all .8s ease-in-out;
 }
 
+.projects__list {
+    list-style: decimal;
+}
+
+.projects__item {
+    font-size: 2.5rem;
+}
+
+.projects__item a,
+.projects__item a:visited {
+    color: #a12aac;
+    text-decoration: none;
+}
+
+.projects__item a:hover,
+.projects__item a:focus {
+    text-decoration: underline;
+}
+
+
 .contacts {
     background-color: var(--bg-3);
     right: 15vmin;
@@ -273,7 +293,8 @@ body {
     transition: all .8s ease-in-out;
 }
 
-.content--contacts {
+.content--contacts,
+.content--projects {
     margin-top: 2rem;
 }
 
@@ -283,9 +304,13 @@ body {
     width: 3vh;
     height: 3vh;
     position: absolute;
-    right: 3.5vh;
-    top: 3.5vh;
+    right: 5vmin;
+    top: 5vmin;
     display: none;
+}
+
+.btn-close-resume {
+    right: 7.5vmin;
 }
 
 .btn-close-resume::before,
@@ -321,6 +346,8 @@ body {
 }
 
 .logo {
-    height: 12vh;
+    height: 10vh;
+    margin: 0 2.5vmin;
     width: auto;
 }
+
